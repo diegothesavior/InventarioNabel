@@ -8,6 +8,7 @@ desde el computador, la tablet y el teléfono dentro del taller.
 
 - 📘 [Cómo poner en marcha el sistema](docs/DESPLIEGUE.md) — paso a paso, sin conocimientos técnicos.
 - 📗 [Manual del taller](docs/MANUAL-DEL-EQUIPO.md) — cómo se usa en el día a día.
+- 📙 [Handoff](docs/HANDOFF.md) — en qué punto está el proyecto, qué decisiones se tomaron y qué falta.
 
 ---
 
