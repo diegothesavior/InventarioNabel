@@ -241,8 +241,6 @@ línea, que **ninguna difería de la anterior salvo por las tildes y las eñes**
 
 ### 1. Confirmar la moneda
 
-
-
 Está puesto peso colombiano (`COP`) con formato `es-CO`, **a falta de
 confirmación**. Si es otra, se cambia con dos variables de entorno en Vercel,
 sin tocar código:
