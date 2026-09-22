@@ -7,7 +7,6 @@
 -- =====================================================================
 
 create extension if not exists "pgcrypto";
-create extension if not exists "unaccent";
 
 -- ---------------------------------------------------------------------
 -- 1. Tipos
@@ -170,14 +169,8 @@ create unique index if not exists materiales_codigo_unico
   on public.materiales (lower(codigo));
 create index if not exists materiales_clase_idx on public.materiales (clase, activo);
 create index if not exists materiales_proveedor_idx on public.materiales (proveedor_id);
-create index if not exists materiales_busqueda_idx
-  on public.materiales using gin (
-    to_tsvector('simple',
-      unaccent(coalesce(codigo,'') || ' ' || coalesce(nombre,'') || ' ' ||
-               coalesce(tipo,'') || ' ' || coalesce(color,'') || ' ' ||
-               coalesce(composicion,'') || ' ' || coalesce(ubicacion,''))
-    )
-  );
+create index if not exists materiales_nombre_idx on public.materiales (lower(nombre));
+create index if not exists materiales_tipo_idx on public.materiales (lower(tipo));
 
 -- ---------------------------------------------------------------------
 -- 5. Clientas y colecciones (el atelier trabaja de las dos formas)
@@ -677,5 +670,26 @@ create policy fotos_borrar_admin on storage.objects
   for delete to authenticated using (bucket_id = 'fotos' and public.es_admin());
 
 -- ---------------------------------------------------------------------
--- 12. Listo.
+-- 12. Permisos de acceso
+--     Quien ha iniciado sesion puede consultar; lo que realmente puede
+--     hacer lo decide el apartado 10 (Row Level Security).
+-- ---------------------------------------------------------------------
+grant usage on schema public to authenticated;
+
+grant select, insert, update, delete on
+  public.perfiles, public.proveedores, public.materiales, public.clientas,
+  public.colecciones, public.prendas, public.movimientos
+  to authenticated;
+
+grant select on public.historial to authenticated;
+
+grant select on
+  public.stock_actual, public.materiales_vista, public.movimientos_vista,
+  public.prendas_vista, public.historial_vista
+  to authenticated;
+
+grant execute on function public.es_admin(), public.es_miembro() to authenticated;
+
+-- ---------------------------------------------------------------------
+-- 13. Listo.
 -- ---------------------------------------------------------------------

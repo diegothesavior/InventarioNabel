@@ -14,6 +14,7 @@ const ENLACES: Enlace[] = [
   { href: "/insumos", texto: "Insumos" },
   { href: "/movimientos", texto: "Movimientos" },
   { href: "/prendas", texto: "Prendas" },
+  { href: "/terminadas", texto: "Terminadas" },
   { href: "/proveedores", texto: "Proveedores" },
   { href: "/historial", texto: "Historial", soloAdmin: true },
   { href: "/equipo", texto: "Equipo", soloAdmin: true },
