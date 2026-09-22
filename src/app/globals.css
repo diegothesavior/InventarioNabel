@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+/* =====================================================================
+   Nabek Martins — lenguaje visual
+   Paleta neutra de atelier: hueso, tinta, lino y un unico acento
+   discreto para alertas. Nada de azules corporativos.
+   ===================================================================== */
+@theme {
+  --color-hueso: #faf8f5;
+  --color-papel: #ffffff;
+  --color-lino: #f1ede7;
+  --color-arena: #e3dcd2;
+  --color-piedra: #c9c0b4;
+  --color-humo: #8b8175;
+  --color-grafito: #5a534b;
+  --color-tinta: #1f1c19;
+
+  --color-alerta: #9a5b3f;
+  --color-alerta-suave: #f7ebe4;
+  --color-bien: #5b6b52;
+  --color-bien-suave: #eef1ea;
+
+  --font-display: var(--fuente-display), "Didot", "Times New Roman", serif;
+  --font-sans: var(--fuente-sans), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --radius-suave: 2px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-hueso);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  /* Zonas de toque comodas para manos ocupadas en el taller. */
+  button, a, input, select, textarea {
+    font-family: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-grafito);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-arena);
+  }
+}
+
+@layer components {
+  /* --- Titulos de seccion ------------------------------------------ */
+  .titulo-seccion {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    line-height: 1.15;
+    letter-spacing: 0.005em;
+  }
+
+  .antetitulo {
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-humo);
+  }
+
+  /* --- Botones ------------------------------------------------------ */
+  .boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    border-radius: var(--radius-suave);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+    cursor: pointer;
+  }
+
+  .boton:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .boton-principal {
+    background: var(--color-tinta);
+    color: var(--color-hueso);
+    border: 1px solid var(--color-tinta);
+  }
+  .boton-principal:hover:not(:disabled) {
+    background: var(--color-grafito);
+    border-color: var(--color-grafito);
+  }
+
+  .boton-secundario {
+    background: transparent;
+    color: var(--color-tinta);
+    border: 1px solid var(--color-piedra);
+  }
+  .boton-secundario:hover:not(:disabled) {
+    border-color: var(--color-tinta);
+    background: var(--color-lino);
+  }
+
+  .boton-texto {
+    min-height: 40px;
+    padding: 0 0.75rem;
+    background: transparent;
+    border: none;
+    color: var(--color-grafito);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 0.875rem;
+  }
+  .boton-texto:hover:not(:disabled) {
+    color: var(--color-tinta);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .boton-peligro {
+    background: transparent;
+    color: var(--color-alerta);
+    border: 1px solid var(--color-alerta);
+  }
+  .boton-peligro:hover:not(:disabled) {
+    background: var(--color-alerta);
+    color: var(--color-papel);
+  }
+
+  /* --- Formularios --------------------------------------------------- */
+  .campo {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.625rem 0.875rem;
+    background: var(--color-papel);
+    border: 1px solid var(--color-arena);
+    border-radius: var(--radius-suave);
+    font-size: 1rem;
+    color: var(--color-tinta);
+  }
+  .campo::placeholder {
+    color: var(--color-piedra);
+  }
+  .campo:focus {
+    border-color: var(--color-grafito);
+    outline: none;
+  }
+  .campo:disabled {
+    background: var(--color-lino);
+    color: var(--color-humo);
+  }
+
+  textarea.campo {
+    min-height: 96px;
+    line-height: 1.5;
+  }
+
+  .etiqueta {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-humo);
+  }
+
+  .ayuda {
+    margin-top: 0.375rem;
+    font-size: 0.8125rem;
+    color: var(--color-humo);
+  }
+
+  /* --- Superficies ---------------------------------------------------- */
+  .tarjeta {
+    background: var(--color-papel);
+    border: 1px solid var(--color-arena);
+    border-radius: var(--radius-suave);
+  }
+
+  /* --- Tablas ---------------------------------------------------------- */
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .tabla thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-humo);
+    border-bottom: 1px solid var(--color-arena);
+    white-space: nowrap;
+  }
+  .tabla tbody td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-lino);
+    vertical-align: middle;
+  }
+  .tabla tbody tr:hover {
+    background: var(--color-hueso);
+  }
+  .numerico {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- Distintivos ------------------------------------------------------ */
+  .distintivo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .distintivo-neutro {
+    background: var(--color-lino);
+    color: var(--color-grafito);
+  }
+  .distintivo-alerta {
+    background: var(--color-alerta-suave);
+    color: var(--color-alerta);
+  }
+  .distintivo-bien {
+    background: var(--color-bien-suave);
+    color: var(--color-bien);
+  }
+
+  /* --- Avisos ------------------------------------------------------------ */
+  .aviso {
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius-suave);
+    font-size: 0.9375rem;
+    border: 1px solid;
+  }
+  .aviso-error {
+    background: var(--color-alerta-suave);
+    border-color: color-mix(in srgb, var(--color-alerta) 35%, transparent);
+    color: var(--color-alerta);
+  }
+  .aviso-exito {
+    background: var(--color-bien-suave);
+    border-color: color-mix(in srgb, var(--color-bien) 35%, transparent);
+    color: var(--color-bien);
+  }
+  .aviso-info {
+    background: var(--color-lino);
+    border-color: var(--color-arena);
+    color: var(--color-grafito);
+  }
+}
+
+/* Impresion: listados limpios para llevar al taller en papel. */
+@media print {
+  .sin-imprimir {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
