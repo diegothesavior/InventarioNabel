@@ -51,7 +51,7 @@ export async function importarMateriales(
   try {
     filas = JSON.parse(String(datos.get("filas") ?? "[]"));
   } catch {
-    return { ok: false, ...vacio, error: "No se pudo leer el archivo. Intentalo de nuevo." };
+    return { ok: false, ...vacio, error: "No se pudo leer el archivo. Inténtalo de nuevo." };
   }
 
   if (!Array.isArray(filas) || filas.length === 0)
@@ -107,7 +107,7 @@ export async function importarMateriales(
     const nombre = fila.nombre?.trim();
 
     if (!codigo || !nombre) {
-      problemas.push(`Fila ${numeroFila}: falta el codigo o el nombre. Se omitio.`);
+      problemas.push(`Fila ${numeroFila}: falta el código o el nombre. Se omitió.`);
       continue;
     }
 
@@ -161,12 +161,12 @@ export async function importarMateriales(
         tipo: "entrada",
         cantidad: fila.stock_inicial,
         costo_unitario: campos.costo_unitario,
-        motivo: "Existencia inicial (importacion)",
+        motivo: "Existencia inicial (importación)",
         registrado_por: perfil.id,
       });
       if (falloMovimiento) {
         problemas.push(
-          `Fila ${numeroFila} (${codigo}): la ficha se creo pero no se pudo registrar su existencia inicial.`,
+          `Fila ${numeroFila} (${codigo}): la ficha se creó pero no se pudo registrar su existencia inicial.`,
         );
       }
     }

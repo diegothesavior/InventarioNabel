@@ -25,7 +25,7 @@ function CamposClienta({ clienta }: { clienta?: Clienta }) {
           <input name="nombre" className="campo" defaultValue={clienta?.nombre} required />
         </div>
         <div>
-          <label className="etiqueta">Telefono</label>
+          <label className="etiqueta">Teléfono</label>
           <input name="telefono" type="tel" className="campo" defaultValue={clienta?.telefono ?? ""} />
         </div>
         <div>
@@ -49,7 +49,7 @@ function FormularioNueva() {
       {estado && !estado.ok && <div className="aviso aviso-error">{estado.error}</div>}
       {estado && estado.ok && <div className="aviso aviso-exito">{estado.mensaje}</div>}
       <CamposClienta />
-      <BotonGuardar texto="Anadir clienta" />
+      <BotonGuardar texto="Añadir clienta" />
     </form>
   );
 }
@@ -91,10 +91,10 @@ export function GestionClientas({ clientas }: { clientas: Clienta[] }) {
   function exportar() {
     const columnas: Columna<Clienta>[] = [
       { clave: "nombre", titulo: "Nombre", valor: (c) => c.nombre },
-      { clave: "telefono", titulo: "Telefono", valor: (c) => c.telefono },
+      { clave: "telefono", titulo: "Teléfono", valor: (c) => c.telefono },
       { clave: "email", titulo: "Correo", valor: (c) => c.email },
       { clave: "notas", titulo: "Notas", valor: (c) => c.notas },
-      { clave: "activo", titulo: "Activa", valor: (c) => (c.activo ? "Si" : "No") },
+      { clave: "activo", titulo: "Activa", valor: (c) => (c.activo ? "Sí" : "No") },
     ];
     descargarCsv("clientas", filtradas, columnas);
   }
@@ -102,7 +102,7 @@ export function GestionClientas({ clientas }: { clientas: Clienta[] }) {
   return (
     <div className="space-y-14">
       <section>
-        <h2 className="antetitulo mb-4">Anadir clienta</h2>
+        <h2 className="antetitulo mb-4">Añadir clienta</h2>
         <FormularioNueva />
       </section>
 
@@ -123,7 +123,7 @@ export function GestionClientas({ clientas }: { clientas: Clienta[] }) {
 
         {filtradas.length === 0 ? (
           <div className="tarjeta px-6 py-12 text-center text-grafito">
-            {clientas.length === 0 ? "Aun no hay clientas registradas." : "Ninguna coincide."}
+            {clientas.length === 0 ? "Aún no hay clientas registradas." : "Ninguna coincide."}
           </div>
         ) : (
           <div className="tarjeta divide-y divide-lino">

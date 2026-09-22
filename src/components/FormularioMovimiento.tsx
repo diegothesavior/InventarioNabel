@@ -8,8 +8,8 @@ import { cantidad, etiquetaUnidad, normalizar, numero } from "@/lib/formato";
 import type { Material, Prenda, TipoMovimiento } from "@/lib/tipos";
 
 const OPCIONES: { valor: TipoMovimiento; titulo: string; ayuda: string }[] = [
-  { valor: "entrada", titulo: "Entrada", ayuda: "Llego material nuevo" },
-  { valor: "salida", titulo: "Salida", ayuda: "Se uso o se saco del taller" },
+  { valor: "entrada", titulo: "Entrada", ayuda: "Llegó material nuevo" },
+  { valor: "salida", titulo: "Salida", ayuda: "Se usó o se sacó del taller" },
   { valor: "ajuste", titulo: "Ajuste", ayuda: "Corregir tras un conteo" },
 ];
 
@@ -84,7 +84,7 @@ export function FormularioMovimiento({
 
       {/* Tipo: botones grandes, faciles de tocar en el taller */}
       <fieldset>
-        <legend className="etiqueta mb-3">Que paso</legend>
+        <legend className="etiqueta mb-3">Qué pasó</legend>
         <input type="hidden" name="tipo" value={tipo} />
         <div className="grid gap-3 sm:grid-cols-3">
           {OPCIONES.map((o) => (
@@ -120,7 +120,7 @@ export function FormularioMovimiento({
           <input
             type="search"
             className="campo"
-            placeholder="Filtrar la lista: codigo, nombre, color…"
+            placeholder="Filtrar la lista: código, nombre, color…"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -187,7 +187,7 @@ export function FormularioMovimiento({
         {stockResultante !== null && elegido && (
           <p className={`ayuda ${stockResultante < 0 ? "text-alerta" : ""}`}>
             {stockResultante < 0
-              ? "No hay suficiente: la operacion dejaria el stock en negativo."
+              ? "No hay suficiente: la operación dejaría el stock en negativo."
               : `Quedaria en ${cantidad(stockResultante, elegido.unidad)}.`}
           </p>
         )}
@@ -197,7 +197,7 @@ export function FormularioMovimiento({
       {tipo === "salida" && prendas.length > 0 && (
         <div>
           <label className="etiqueta" htmlFor="prenda_id">
-            ¿Para que prenda?
+            ¿Para qué prenda?
           </label>
           <select id="prenda_id" name="prenda_id" className="campo" defaultValue={prendaInicial ?? ""}>
             <option value="">Sin prenda asignada</option>
@@ -209,7 +209,7 @@ export function FormularioMovimiento({
               </option>
             ))}
           </select>
-          <p className="ayuda">Asignarla permite saber cuanto material lleva cada prenda.</p>
+          <p className="ayuda">Asignarla permite saber cuánto material lleva cada prenda.</p>
         </div>
       )}
 
@@ -246,7 +246,7 @@ export function FormularioMovimiento({
             placeholder={elegido?.costo_unitario ? String(elegido.costo_unitario) : ""}
           />
           <p className="ayuda">
-            Si lo dejas vacio se usa el costo de la ficha. Queda guardado en el movimiento.
+            Si lo dejas vacío se usa el costo de la ficha. Queda guardado en el movimiento.
           </p>
         </div>
       )}
@@ -260,7 +260,7 @@ export function FormularioMovimiento({
             Fecha del movimiento
           </label>
           <input id="fecha" name="fecha" type="datetime-local" className="campo" />
-          <p className="ayuda">Si lo dejas vacio se usa la fecha y hora de ahora.</p>
+          <p className="ayuda">Si lo dejas vacío se usa la fecha y hora de ahora.</p>
         </div>
       </details>
 

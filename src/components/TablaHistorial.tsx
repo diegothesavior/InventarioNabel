@@ -12,7 +12,7 @@ const NOMBRES_TABLA: Record<string, string> = {
   proveedores: "Proveedor",
   prendas: "Prenda",
   clientas: "Clienta",
-  colecciones: "Coleccion",
+  colecciones: "Colección",
 };
 
 export function TablaHistorial({ entradas }: { entradas: EntradaHistorial[] }) {
@@ -34,10 +34,10 @@ export function TablaHistorial({ entradas }: { entradas: EntradaHistorial[] }) {
   function exportar() {
     const columnas: Columna<EntradaHistorial>[] = [
       { clave: "ocurrido_en", titulo: "Fecha", valor: (e) => fechaHora(e.ocurrido_en) },
-      { clave: "tabla", titulo: "Que", valor: (e) => NOMBRES_TABLA[e.tabla] ?? e.tabla },
+      { clave: "tabla", titulo: "Qué", valor: (e) => NOMBRES_TABLA[e.tabla] ?? e.tabla },
       { clave: "descripcion", titulo: "Registro", valor: (e) => e.descripcion },
-      { clave: "accion", titulo: "Accion", valor: (e) => e.accion },
-      { clave: "usuario", titulo: "Quien", valor: (e) => e.usuario_nombre },
+      { clave: "accion", titulo: "Acción", valor: (e) => e.accion },
+      { clave: "usuario", titulo: "Quién", valor: (e) => e.usuario_nombre },
     ];
     descargarCsv("historial", filtradas, columnas);
   }
@@ -74,11 +74,11 @@ export function TablaHistorial({ entradas }: { entradas: EntradaHistorial[] }) {
           <table className="tabla">
             <thead>
               <tr>
-                <th>Cuando</th>
-                <th>Quien</th>
-                <th>Que</th>
+                <th>Cuándo</th>
+                <th>Quién</th>
+                <th>Qué</th>
                 <th>Registro</th>
-                <th>Accion</th>
+                <th>Acción</th>
               </tr>
             </thead>
             <tbody>

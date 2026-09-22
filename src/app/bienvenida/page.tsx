@@ -7,7 +7,7 @@ export default function PaginaBienvenida() {
   return (
     <MarcoAcceso
       titulo="Elige tu contraseña"
-      descripcion="Solo la necesitas una vez. Despues entraras con tu correo y esta contraseña."
+      descripcion="Solo la necesitas una vez. Después entrarás con tu correo y esta contraseña."
     >
       <FormularioClaveNueva />
     </MarcoAcceso>

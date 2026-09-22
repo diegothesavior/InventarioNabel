@@ -11,7 +11,7 @@ function BotonInvitar() {
   const { pending } = useFormStatus();
   return (
     <button type="submit" className="boton boton-principal" disabled={pending}>
-      {pending ? "Enviando…" : "Enviar invitacion"}
+      {pending ? "Enviando…" : "Enviar invitación"}
     </button>
   );
 }
@@ -45,7 +45,7 @@ export function GestionEquipo({ perfiles, yo }: { perfiles: Perfil[]; yo: Perfil
           </div>
 
           <fieldset>
-            <legend className="etiqueta mb-3">Que podra hacer</legend>
+            <legend className="etiqueta mb-3">Qué podrá hacer</legend>
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="tarjeta flex cursor-pointer gap-3 px-4 py-4">
                 <input type="radio" name="rol" value="equipo" defaultChecked className="mt-1 h-5 w-5 accent-[#1f1c19]" />
@@ -61,7 +61,7 @@ export function GestionEquipo({ perfiles, yo }: { perfiles: Perfil[]; yo: Perfil
                 <span>
                   <span className="block">Administradora</span>
                   <span className="block text-sm text-humo">
-                    Todo: crear y editar fichas, ver costos y margenes, invitar personas.
+                    Todo: crear y editar fichas, ver costos y márgenes, invitar personas.
                   </span>
                 </span>
               </label>
@@ -70,7 +70,7 @@ export function GestionEquipo({ perfiles, yo }: { perfiles: Perfil[]; yo: Perfil
 
           <BotonInvitar />
           <p className="ayuda">
-            Recibira un correo con un enlace para elegir su contraseña. Si no llega en unos
+            Recibirá un correo con un enlace para elegir su contraseña. Si no llega en unos
             minutos, que revise la carpeta de correo no deseado.
           </p>
         </form>

@@ -39,8 +39,8 @@ export default async function PaginaNuevoMovimiento({
 
       {materiales.length === 0 ? (
         <EstadoVacio
-          titulo="Todavia no hay materiales"
-          descripcion="Primero hay que crear las fichas de telas e insumos. Despues se pueden registrar sus movimientos."
+          titulo="Todavía no hay materiales"
+          descripcion="Primero hay que crear las fichas de telas e insumos. Después se pueden registrar sus movimientos."
           accion={
             perfil.rol === "administradora" ? (
               <Link href="/telas/nueva" className="boton boton-principal">

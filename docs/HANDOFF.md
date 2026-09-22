@@ -230,27 +230,18 @@ Si algo se rompiera, el propio script se detiene con un error que empieza por
 
 Además: `npm run typecheck` y `npm run build` pasan limpios.
 
+**Las tildes de la interfaz** se corrigieron en una pasada aparte: 193 líneas en
+43 archivos. Se hizo solo sobre las zonas de texto —nunca sobre identificadores,
+clases CSS, rutas ni campos de base de datos— y se comprobó después, línea a
+línea, que **ninguna difería de la anterior salvo por las tildes y las eñes**.
+
 ---
 
 ## 9 · Pendientes, en orden
 
-### 1. Las tildes de la interfaz · *defecto conocido, arreglo mecánico*
+### 1. Confirmar la moneda
 
-Hay **188 textos de la interfaz escritos sin tilde** repartidos en 28 archivos:
-«Composicion» por *Composición*, «Punto de reposicion» por *Punto de
-reposición*, «Anadir» por *Añadir*, «Galeria» por *Galería*, «Codigo» por
-*Código*. Es un defecto de quien escribió el código, no una decisión.
 
-Para una marca de alta costura se ve mal y hay que corregirlo antes de que el
-equipo lo use. El arreglo es mecánico pero **no se puede hacer con un buscar y
-reemplazar a ciegas**: hay que tocar solo los textos que ve la persona, nunca
-los nombres de variables, funciones o campos de la base de datos (`GaleriaTerminadas`,
-`composicion`, `punto_reposicion` deben quedarse exactamente como están).
-
-Los comentarios del código y los archivos SQL también están sin tildes; eso es
-deliberado y puede quedarse así.
-
-### 2. Confirmar la moneda
 
 Está puesto peso colombiano (`COP`) con formato `es-CO`, **a falta de
 confirmación**. Si es otra, se cambia con dos variables de entorno en Vercel,
@@ -261,16 +252,16 @@ NEXT_PUBLIC_MONEDA=COP
 NEXT_PUBLIC_LOCALE=es-CO
 ```
 
-### 3. Desplegar y cargar los datos reales
+### 2. Desplegar y cargar los datos reales
 
 Ver §7. Lo normal es que al cargar el inventario de verdad aparezcan dos o tres
 campos que faltan o sobran. Es esperable y es barato cambiarlo.
 
-### 4. Decidir si se abre un Pull Request
+### 3. Decidir si se abre un Pull Request
 
 La rama está subida. No hay PR abierto.
 
-### 5. Los módulos siguientes
+### 4. Los módulos siguientes
 
 **Gestión de producción** (cronograma, tiempos por prenda, reuniones) y
 **organización documental**. La base está preparada: `prendas` ya tiene etapa,
@@ -285,8 +276,9 @@ Para que lo que se añada no desentone con lo que hay:
 
 - **Todo en español**: nombres de variables, funciones, campos, rutas y textos.
   `crearMaterial`, `punto_reposicion`, `/movimientos/nuevo`.
-- **Sin tildes en el código y en el SQL** (nombres y comentarios). **Con tildes
-  en lo que lee la persona** — que es justo el pendiente §9.1.
+- **Sin tildes en el código y en el SQL** (nombres de variables, campos y
+  comentarios). **Con tildes en todo lo que lee la persona.** Si añades textos,
+  respétalo: es lo que distingue una interfaz cuidada de una descuidada.
 - **Todo lo que escribe en la base de datos es un Server Action**, en
   `src/lib/acciones/`. Devuelven siempre `ResultadoAccion`, que es
   `{ok:true}` o `{ok:false, error}` con el error ya traducido a algo que una
@@ -319,10 +311,9 @@ construyó.
 Si prefieres ir al grano, estas son las tres cosas por las que empezar, en este
 orden:
 
-1. **Arreglar las tildes de la interfaz** (§9.1). Es lo único que hoy desmerece
-   el resultado, y es rápido.
-2. **Desplegar** siguiendo [`docs/DESPLIEGUE.md`](DESPLIEGUE.md), invitar al
+1. **Desplegar** siguiendo [`docs/DESPLIEGUE.md`](DESPLIEGUE.md), invitar al
    equipo y cargar las hojas de cálculo actuales.
+2. **Confirmar la moneda** (§9.1). Son dos variables de entorno.
 3. **Usarlo una semana** antes de añadir nada. Los ajustes que de verdad hacen
    falta solo aparecen usándolo.
 
@@ -344,5 +335,7 @@ Cosas que parecen buena idea y no lo son:
   (4.4); duplicarla parte su historial y su costo en dos.
 - **Borrar en lugar de archivar o anular.** El taller necesita poder reconstruir
   qué pasó y quién lo hizo.
-- **Un buscar y reemplazar de tildes sobre todo el proyecto.** Rompería nombres
-  de funciones y campos de la base de datos. Ver §9.1.
+- **Un buscar y reemplazar sobre todo el proyecto.** Los nombres de variables y
+  campos van sin tildes y los textos con ellas, así que un reemplazo a ciegas
+  rompe el código. Cuando haga falta, se hace solo sobre las zonas de texto y
+  se comprueba después que ninguna línea cambió salvo por las tildes.

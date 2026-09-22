@@ -16,7 +16,7 @@ export default async function PaginaPrendas() {
       <EncabezadoPagina
         antetitulo="Taller"
         titulo="Prendas en proceso"
-        descripcion="En que etapa va cada prenda, quien la lleva y para cuando es."
+        descripcion="En qué etapa va cada prenda, quién la lleva y para cuándo es."
         acciones={
           <>
             {esAdmin && (
@@ -39,7 +39,7 @@ export default async function PaginaPrendas() {
       {enProceso.length === 0 ? (
         <EstadoVacio
           titulo="No hay prendas en proceso"
-          descripcion="Al crear una prenda podras seguir su etapa y ver cuanto material lleva."
+          descripcion="Al crear una prenda podrás seguir su etapa y ver cuánto material lleva."
           accion={
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/prendas/nueva" className="boton boton-principal">

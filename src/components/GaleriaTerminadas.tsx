@@ -38,10 +38,10 @@ export function GaleriaTerminadas({ prendas, esAdmin }: { prendas: Prenda[]; esA
 
   function exportar() {
     const columnas: Columna<Prenda>[] = [
-      { clave: "codigo", titulo: "Codigo", valor: (p) => p.codigo },
+      { clave: "codigo", titulo: "Código", valor: (p) => p.codigo },
       { clave: "nombre", titulo: "Prenda", valor: (p) => p.nombre },
       { clave: "clienta", titulo: "Clienta", valor: (p) => p.clienta_nombre },
-      { clave: "coleccion", titulo: "Coleccion", valor: (p) => p.coleccion_nombre },
+      { clave: "coleccion", titulo: "Colección", valor: (p) => p.coleccion_nombre },
       { clave: "estado", titulo: "Estado", valor: (p) => etiquetaEstado(p.estado) },
       { clave: "talla", titulo: "Talla", valor: (p) => p.talla },
       { clave: "entrega_real", titulo: "Entregada el", valor: (p) => p.fecha_entrega_real },
@@ -63,7 +63,7 @@ export function GaleriaTerminadas({ prendas, esAdmin }: { prendas: Prenda[]; esA
           <input
             type="search"
             className="campo md:flex-1"
-            placeholder="Buscar por prenda, clienta o coleccion…"
+            placeholder="Buscar por prenda, clienta o colección…"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -74,7 +74,7 @@ export function GaleriaTerminadas({ prendas, esAdmin }: { prendas: Prenda[]; esA
                 onClick={() => setVista("galeria")}
                 className={`min-h-12 px-4 text-sm ${vista === "galeria" ? "bg-tinta text-hueso" : "bg-papel"}`}
               >
-                Galeria
+                Galería
               </button>
               <button
                 type="button"
@@ -151,7 +151,7 @@ export function GaleriaTerminadas({ prendas, esAdmin }: { prendas: Prenda[]; esA
           <table className="tabla">
             <thead>
               <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Prenda</th>
                 <th>Para</th>
                 <th>Estado</th>

@@ -5,7 +5,7 @@ export function traducirError(error: { message: string; code?: string }): string
   const m = error.message || "";
 
   if (error.code === "23505" || m.includes("duplicate key")) {
-    if (m.includes("codigo")) return "Ya existe un registro con ese codigo. Usa otro.";
+    if (m.includes("codigo")) return "Ya existe un registro con ese código. Usa otro.";
     if (m.includes("nombre")) return "Ya existe un registro con ese nombre.";
     return "Ese registro ya existe.";
   }
@@ -13,15 +13,15 @@ export function traducirError(error: { message: string; code?: string }): string
     return "No se puede borrar: hay movimientos o prendas que dependen de este registro.";
   }
   if (error.code === "42501" || m.includes("row-level security")) {
-    return "No tienes permiso para hacer esto. Pidelo a la administradora.";
+    return "No tienes permiso para hacer esto. Pídelo a la administradora.";
   }
   if (m.includes("No hay suficiente stock")) {
     return m.replace(/^.*?No hay suficiente/, "No hay suficiente");
   }
   if (m.includes("prendas_tiene_destino")) {
-    return "La prenda debe tener una clienta o una coleccion.";
+    return "La prenda debe tener una clienta o una colección.";
   }
-  return m || "Algo salio mal. Intentalo de nuevo.";
+  return m || "Algo salió mal. Inténtalo de nuevo.";
 }
 
 export function fallo(mensaje: string): ResultadoAccion {

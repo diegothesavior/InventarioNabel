@@ -32,7 +32,7 @@ export async function invitarPersona(
 
   if (!email) return fallo("Escribe el correo de la persona.");
   if (!nombre) return fallo("Escribe su nombre.");
-  if (rol !== "administradora" && rol !== "equipo") return fallo("Elige un rol valido.");
+  if (rol !== "administradora" && rol !== "equipo") return fallo("Elige un rol válido.");
 
   let admin;
   try {
@@ -53,13 +53,13 @@ export async function invitarPersona(
 
   if (error) {
     if (error.message.includes("already been registered")) {
-      return fallo("Esa persona ya tiene cuenta. Buscala en la lista de abajo.");
+      return fallo("Esa persona ya tiene cuenta. Búscala en la lista de abajo.");
     }
     return fallo(traducirError(error));
   }
 
   revalidatePath("/equipo");
-  return exito(`Invitacion enviada a ${email}. Dile que revise su correo.`);
+  return exito(`Invitación enviada a ${email}. Dile que revise su correo.`);
 }
 
 export async function cambiarRol(id: string, rol: RolUsuario): Promise<ResultadoAccion> {

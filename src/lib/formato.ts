@@ -69,7 +69,7 @@ export function fechaHora(valor: string | Date | null | undefined): string {
   }).format(d);
 }
 
-/** "hace 3 dias" */
+/** "hace 3 días" */
 export function haceTiempo(valor: string | Date | null | undefined): string {
   if (!valor) return "—";
   const d = typeof valor === "string" ? new Date(valor) : valor;

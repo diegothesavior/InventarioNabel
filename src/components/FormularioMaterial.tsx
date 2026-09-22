@@ -41,12 +41,12 @@ export function FormularioMaterial({
       )}
 
       <section className="space-y-5">
-        <h2 className="antetitulo">Identificacion</h2>
+        <h2 className="antetitulo">Identificación</h2>
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label className="etiqueta" htmlFor="codigo">
-              Codigo *
+              Código *
             </label>
             <input
               id="codigo"
@@ -68,14 +68,14 @@ export function FormularioMaterial({
               name="nombre"
               className="campo"
               defaultValue={material?.nombre}
-              placeholder={esTela ? "Seda salvaje marfil" : "Boton nacar 12 mm"}
+              placeholder={esTela ? "Seda salvaje marfil" : "Botón nácar 12 mm"}
               required
             />
           </div>
 
           <div>
             <label className="etiqueta" htmlFor="tipo">
-              {esTela ? "Tipo de tela" : "Categoria"}
+              {esTela ? "Tipo de tela" : "Categoría"}
             </label>
             <input
               id="tipo"
@@ -114,7 +114,7 @@ export function FormularioMaterial({
           <div className="grid gap-5 sm:grid-cols-3">
             <div>
               <label className="etiqueta" htmlFor="composicion">
-                Composicion
+                Composición
               </label>
               <input
                 id="composicion"
@@ -196,20 +196,20 @@ export function FormularioMaterial({
 
           <div>
             <label className="etiqueta" htmlFor="ubicacion">
-              Ubicacion fisica
+              Ubicación física
             </label>
             <input
               id="ubicacion"
               name="ubicacion"
               className="campo"
               defaultValue={material?.ubicacion ?? ""}
-              placeholder="Estante B, cajon 3"
+              placeholder="Estante B, cajón 3"
             />
           </div>
 
           <div>
             <label className="etiqueta" htmlFor="punto_reposicion">
-              Punto de reposicion
+              Punto de reposición
             </label>
             <input
               id="punto_reposicion"

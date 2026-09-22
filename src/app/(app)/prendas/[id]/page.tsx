@@ -121,7 +121,7 @@ export default async function PaginaPrenda({
             <h2 className="antetitulo mb-4">Ficha</h2>
             <dl className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Dato etiqueta="Clienta">{prenda.clienta_nombre ?? "—"}</Dato>
-              <Dato etiqueta="Coleccion">{prenda.coleccion_nombre ?? "—"}</Dato>
+              <Dato etiqueta="Colección">{prenda.coleccion_nombre ?? "—"}</Dato>
               <Dato etiqueta="Responsable">{prenda.responsable_nombre ?? "—"}</Dato>
               <Dato etiqueta="Talla o medidas">{prenda.talla ?? "—"}</Dato>
               <Dato etiqueta="Entrega estimada">{fechaCorta(prenda.fecha_estimada_entrega)}</Dato>
@@ -140,14 +140,14 @@ export default async function PaginaPrenda({
                 href={`/movimientos/nuevo?prenda=${prenda.id}`}
                 className="boton-texto sin-imprimir"
               >
-                Asignar mas
+                Asignar más
               </Link>
             </div>
 
             {usados.length === 0 ? (
               <div className="tarjeta px-6 py-10 text-center text-grafito">
-                Todavia no se ha asignado material a esta prenda. Se asigna registrando una
-                salida y eligiendola como destino.
+                Todavía no se ha asignado material a esta prenda. Se asigna registrando una
+                salida y eligiéndola como destino.
               </div>
             ) : (
               <div className="tarjeta overflow-x-auto">
@@ -157,7 +157,7 @@ export default async function PaginaPrenda({
                       <th>Material</th>
                       <th className="numerico">Cantidad</th>
                       <th>Fecha</th>
-                      <th>Quien</th>
+                      <th>Quién</th>
                       {esAdmin && <th className="numerico">Costo</th>}
                     </tr>
                   </thead>
@@ -199,7 +199,7 @@ export default async function PaginaPrenda({
             <p className="sin-imprimir text-sm text-humo">
               <Distintivo>En proceso</Distintivo>{" "}
               <span className="ml-2">
-                Cuando este lista, cambia el estado a «Terminada» y pasara a la seccion de
+                Cuando este lista, cambia el estado a «Terminada» y pasará a la sección de
                 prendas terminadas.
               </span>
             </p>

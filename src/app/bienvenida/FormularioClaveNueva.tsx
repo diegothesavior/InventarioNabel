@@ -45,7 +45,7 @@ export function FormularioClaveNueva() {
 
     if (fallo) {
       setCargando(false);
-      setError("No se pudo guardar. Pide un enlace nuevo e intentalo otra vez.");
+      setError("No se pudo guardar. Pide un enlace nuevo e inténtalo otra vez.");
       return;
     }
 
@@ -63,7 +63,7 @@ export function FormularioClaveNueva() {
   if (sesionLista === false) {
     return (
       <div className="aviso aviso-error">
-        Este enlace ya no es valido o caduco. Pide uno nuevo desde <b>Recuperar contraseña</b>.
+        Este enlace ya no es válido o caduco. Pide uno nuevo desde <b>Recuperar contraseña</b>.
       </div>
     );
   }
@@ -99,7 +99,7 @@ export function FormularioClaveNueva() {
           autoComplete="new-password"
           required
         />
-        <p className="ayuda">Minimo 8 caracteres.</p>
+        <p className="ayuda">Mínimo 8 caracteres.</p>
       </div>
 
       <div>

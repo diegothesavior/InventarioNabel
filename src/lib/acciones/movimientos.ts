@@ -33,7 +33,7 @@ export async function registrarMovimiento(
   if (cantidad === null) return fallo("Escribe la cantidad.");
   if (tipo !== "ajuste" && cantidad <= 0) return fallo("La cantidad debe ser mayor que cero.");
   if (tipo === "ajuste" && cantidad === 0)
-    return fallo("Un ajuste no puede ser de cero. Usa un numero positivo o negativo.");
+    return fallo("Un ajuste no puede ser de cero. Usa un número positivo o negativo.");
 
   const supabase = await crearClienteServidor();
 
@@ -76,7 +76,7 @@ export async function anularMovimiento(
   const id = texto(datos, "id");
   const motivo = texto(datos, "motivo_anulacion");
   if (!id) return fallo("Falta el movimiento.");
-  if (!motivo) return fallo("Escribe por que se anula. Queda en el historial.");
+  if (!motivo) return fallo("Escribe por qué se anula. Queda en el historial.");
 
   const supabase = await crearClienteServidor();
   const { error } = await supabase

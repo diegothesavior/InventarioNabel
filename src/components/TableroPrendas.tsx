@@ -44,10 +44,10 @@ export function TableroPrendas({ prendas, esAdmin }: { prendas: Prenda[]; esAdmi
 
   function exportar() {
     const columnas: Columna<Prenda>[] = [
-      { clave: "codigo", titulo: "Codigo", valor: (p) => p.codigo },
+      { clave: "codigo", titulo: "Código", valor: (p) => p.codigo },
       { clave: "nombre", titulo: "Prenda", valor: (p) => p.nombre },
       { clave: "clienta", titulo: "Clienta", valor: (p) => p.clienta_nombre },
-      { clave: "coleccion", titulo: "Coleccion", valor: (p) => p.coleccion_nombre },
+      { clave: "coleccion", titulo: "Colección", valor: (p) => p.coleccion_nombre },
       { clave: "etapa", titulo: "Etapa", valor: (p) => etiquetaEtapa(p.etapa) },
       { clave: "responsable", titulo: "Responsable", valor: (p) => p.responsable_nombre },
       { clave: "talla", titulo: "Talla", valor: (p) => p.talla },
@@ -70,7 +70,7 @@ export function TableroPrendas({ prendas, esAdmin }: { prendas: Prenda[]; esAdmi
           <input
             type="search"
             className="campo md:flex-1"
-            placeholder="Buscar por prenda, clienta, coleccion o responsable…"
+            placeholder="Buscar por prenda, clienta, colección o responsable…"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -113,7 +113,7 @@ export function TableroPrendas({ prendas, esAdmin }: { prendas: Prenda[]; esAdmi
             </select>
           )}
           <select className="campo w-auto min-w-44" value={destino} onChange={(e) => setDestino(e.target.value)}>
-            <option value="">A medida y coleccion</option>
+            <option value="">A medida y colección</option>
             <option value="clienta">Solo a medida</option>
             <option value="coleccion">Solo colecciones</option>
           </select>
@@ -139,7 +139,7 @@ export function TableroPrendas({ prendas, esAdmin }: { prendas: Prenda[]; esAdmi
                 </div>
 
                 {deEtapa.length === 0 ? (
-                  <p className="py-6 text-center text-sm text-piedra">Vacio</p>
+                  <p className="py-6 text-center text-sm text-piedra">Vacío</p>
                 ) : (
                   <div className="flex flex-col gap-3">
                     {deEtapa.map((p) => (
@@ -156,7 +156,7 @@ export function TableroPrendas({ prendas, esAdmin }: { prendas: Prenda[]; esAdmi
           <table className="tabla">
             <thead>
               <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Prenda</th>
                 <th>Para</th>
                 <th>Etapa</th>

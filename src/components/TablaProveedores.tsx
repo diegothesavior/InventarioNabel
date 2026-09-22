@@ -32,12 +32,12 @@ export function TablaProveedores({
     const columnas: Columna<Proveedor>[] = [
       { clave: "nombre", titulo: "Nombre", valor: (p) => p.nombre },
       { clave: "contacto", titulo: "Contacto", valor: (p) => p.contacto },
-      { clave: "telefono", titulo: "Telefono", valor: (p) => p.telefono },
+      { clave: "telefono", titulo: "Teléfono", valor: (p) => p.telefono },
       { clave: "email", titulo: "Correo", valor: (p) => p.email },
-      { clave: "suministra", titulo: "Que suministra", valor: (p) => p.suministra },
-      { clave: "dias_entrega", titulo: "Dias de entrega", valor: (p) => p.dias_entrega },
+      { clave: "suministra", titulo: "Qué suministra", valor: (p) => p.suministra },
+      { clave: "dias_entrega", titulo: "Días de entrega", valor: (p) => p.dias_entrega },
       { clave: "notas", titulo: "Notas", valor: (p) => p.notas },
-      { clave: "activo", titulo: "Activo", valor: (p) => (p.activo ? "Si" : "No") },
+      { clave: "activo", titulo: "Activo", valor: (p) => (p.activo ? "Sí" : "No") },
     ];
     descargarCsv("proveedores", filtrados, columnas);
   }
@@ -68,7 +68,7 @@ export function TablaProveedores({
 
       {filtrados.length === 0 ? (
         <div className="tarjeta px-6 py-14 text-center text-grafito">
-          Ningun proveedor coincide con la busqueda.
+          Ningún proveedor coincide con la búsqueda.
         </div>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -86,7 +86,7 @@ export function TablaProveedores({
                 )}
                 {p.telefono && (
                   <div className="flex gap-2">
-                    <dt className="text-humo">Telefono</dt>
+                    <dt className="text-humo">Teléfono</dt>
                     <dd>
                       <a href={`tel:${p.telefono}`} className="underline underline-offset-4">
                         {p.telefono}

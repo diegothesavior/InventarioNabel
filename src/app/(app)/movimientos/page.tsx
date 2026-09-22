@@ -26,7 +26,7 @@ export default async function PaginaMovimientos({
         descripcion={
           ficha
             ? `Entradas y salidas de ${ficha.nombre}.`
-            : "Todo lo que entra y sale del taller. El stock se calcula a partir de aqui."
+            : "Todo lo que entra y sale del taller. El stock se calcula a partir de aquí."
         }
         acciones={
           <Link href="/movimientos/nuevo" className="boton boton-principal">
@@ -45,8 +45,8 @@ export default async function PaginaMovimientos({
 
       {movimientos.length === 0 ? (
         <EstadoVacio
-          titulo="Aun no hay movimientos"
-          descripcion="Cada entrada y cada salida de material se registra aqui. El stock sale de esta lista."
+          titulo="Aún no hay movimientos"
+          descripcion="Cada entrada y cada salida de material se registra aquí. El stock sale de esta lista."
           accion={
             <Link href="/movimientos/nuevo" className="boton boton-principal">
               Registrar el primero

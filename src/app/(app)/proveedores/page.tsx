@@ -15,7 +15,7 @@ export default async function PaginaProveedores() {
       <EncabezadoPagina
         antetitulo="Taller"
         titulo="Proveedores"
-        descripcion="Quien nos surte, como contactarlo y cuanto tarda en entregar."
+        descripcion="Quién nos surte, cómo contactarlo y cuánto tarda en entregar."
         acciones={
           esAdmin ? (
             <Link href="/proveedores/nuevo" className="boton boton-principal">
@@ -27,8 +27,8 @@ export default async function PaginaProveedores() {
 
       {proveedores.length === 0 ? (
         <EstadoVacio
-          titulo="Aun no hay proveedores"
-          descripcion="Al registrarlos podras asociarlos a cada tela e insumo y saber a quien pedir."
+          titulo="Aún no hay proveedores"
+          descripcion="Al registrarlos podrás asociarlos a cada tela e insumo y saber a quién pedir."
           accion={
             esAdmin ? (
               <Link href="/proveedores/nuevo" className="boton boton-principal">

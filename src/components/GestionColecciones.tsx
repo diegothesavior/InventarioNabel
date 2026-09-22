@@ -25,7 +25,7 @@ function CamposColeccion({ coleccion }: { coleccion?: Coleccion }) {
           <input name="nombre" className="campo" defaultValue={coleccion?.nombre} required />
         </div>
         <div>
-          <label className="etiqueta">Ano</label>
+          <label className="etiqueta">Año</label>
           <input
             name="anio"
             type="text"
@@ -61,7 +61,7 @@ function FormularioNueva() {
       {estado && !estado.ok && <div className="aviso aviso-error">{estado.error}</div>}
       {estado && estado.ok && <div className="aviso aviso-exito">{estado.mensaje}</div>}
       <CamposColeccion />
-      <BotonGuardar texto="Anadir coleccion" />
+      <BotonGuardar texto="Añadir colección" />
     </form>
   );
 }
@@ -82,7 +82,7 @@ function FormularioEditar({ coleccion }: { coleccion: Coleccion }) {
           className="h-5 w-5 accent-[#1f1c19]"
           defaultChecked={coleccion.activo}
         />
-        Coleccion activa
+        Colección activa
       </label>
       <BotonGuardar texto="Guardar cambios" />
     </form>
@@ -106,9 +106,9 @@ export function GestionColecciones({ colecciones }: { colecciones: Coleccion[] }
     const columnas: Columna<Coleccion>[] = [
       { clave: "nombre", titulo: "Nombre", valor: (c) => c.nombre },
       { clave: "temporada", titulo: "Temporada", valor: (c) => c.temporada },
-      { clave: "anio", titulo: "Ano", valor: (c) => c.anio },
+      { clave: "anio", titulo: "Año", valor: (c) => c.anio },
       { clave: "notas", titulo: "Notas", valor: (c) => c.notas },
-      { clave: "activo", titulo: "Activa", valor: (c) => (c.activo ? "Si" : "No") },
+      { clave: "activo", titulo: "Activa", valor: (c) => (c.activo ? "Sí" : "No") },
     ];
     descargarCsv("colecciones", filtradas, columnas);
   }
@@ -116,7 +116,7 @@ export function GestionColecciones({ colecciones }: { colecciones: Coleccion[] }
   return (
     <div className="space-y-14">
       <section>
-        <h2 className="antetitulo mb-4">Anadir coleccion</h2>
+        <h2 className="antetitulo mb-4">Añadir colección</h2>
         <FormularioNueva />
       </section>
 
@@ -126,7 +126,7 @@ export function GestionColecciones({ colecciones }: { colecciones: Coleccion[] }
           <input
             type="search"
             className="campo md:w-72"
-            placeholder="Buscar coleccion…"
+            placeholder="Buscar colección…"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -137,7 +137,7 @@ export function GestionColecciones({ colecciones }: { colecciones: Coleccion[] }
 
         {filtradas.length === 0 ? (
           <div className="tarjeta px-6 py-12 text-center text-grafito">
-            {colecciones.length === 0 ? "Aun no hay colecciones registradas." : "Ninguna coincide."}
+            {colecciones.length === 0 ? "Aún no hay colecciones registradas." : "Ninguna coincide."}
           </div>
         ) : (
           <div className="tarjeta divide-y divide-lino">

@@ -23,7 +23,7 @@ export async function PaginaNuevoMaterial({ clase }: { clase: ClaseMaterial }) {
       <EncabezadoPagina
         antetitulo="Inventario"
         titulo={esTela ? "Nueva tela" : "Nuevo insumo"}
-        descripcion="Los campos con * son obligatorios. El resto se puede completar despues."
+        descripcion="Los campos con * son obligatorios. El resto se puede completar después."
       />
 
       <FormularioMaterial
@@ -59,7 +59,7 @@ export async function PaginaEditarMaterial({
       <EncabezadoPagina
         antetitulo={material.codigo}
         titulo="Editar ficha"
-        descripcion="Las existencias no se editan aqui: se corrigen con un movimiento de ajuste."
+        descripcion="Las existencias no se editan aquí: se corrigen con un movimiento de ajuste."
       />
 
       <FormularioMaterial

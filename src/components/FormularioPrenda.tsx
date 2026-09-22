@@ -51,7 +51,7 @@ export function FormularioPrenda({
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label className="etiqueta" htmlFor="codigo">
-              Codigo *
+              Código *
             </label>
             <input
               id="codigo"
@@ -108,9 +108,9 @@ export function FormularioPrenda({
       </section>
 
       <section className="space-y-5 border-t border-arena pt-8">
-        <h2 className="antetitulo">¿Para quien es?</h2>
+        <h2 className="antetitulo">¿Para quién es?</h2>
         <p className="text-sm text-grafito">
-          Rellena una de las dos, o las dos si es una prenda de coleccion hecha para una
+          Rellena una de las dos, o las dos si es una prenda de colección hecha para una
           clienta concreta.
         </p>
 
@@ -137,7 +137,7 @@ export function FormularioPrenda({
               <p className="ayuda">
                 ¿No esta?{" "}
                 <Link href="/clientas" className="underline underline-offset-4">
-                  Anadir clienta
+                  Añadir clienta
                 </Link>
               </p>
             )}
@@ -145,7 +145,7 @@ export function FormularioPrenda({
 
           <div>
             <label className="etiqueta" htmlFor="coleccion_id">
-              Coleccion
+              Colección
             </label>
             <select
               id="coleccion_id"
@@ -154,7 +154,7 @@ export function FormularioPrenda({
               value={coleccion}
               onChange={(e) => setColeccion(e.target.value)}
             >
-              <option value="">Sin coleccion</option>
+              <option value="">Sin colección</option>
               {colecciones.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.nombre}
@@ -166,7 +166,7 @@ export function FormularioPrenda({
               <p className="ayuda">
                 ¿No esta?{" "}
                 <Link href="/colecciones" className="underline underline-offset-4">
-                  Anadir coleccion
+                  Añadir colección
                 </Link>
               </p>
             )}
@@ -175,13 +175,13 @@ export function FormularioPrenda({
 
         {sinDestino && (
           <div className="aviso aviso-info">
-            Elige al menos una clienta o una coleccion para poder guardar.
+            Elige al menos una clienta o una colección para poder guardar.
           </div>
         )}
       </section>
 
       <section className="space-y-5 border-t border-arena pt-8">
-        <h2 className="antetitulo">Produccion</h2>
+        <h2 className="antetitulo">Producción</h2>
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
@@ -249,7 +249,7 @@ export function FormularioPrenda({
                 className="campo"
                 defaultValue={prenda?.precio_venta ?? ""}
               />
-              <p className="ayuda">Con esto se calcula el margen. Solo lo ves tu.</p>
+              <p className="ayuda">Con esto se calcula el margen. Solo lo ves tú.</p>
             </div>
           )}
         </div>

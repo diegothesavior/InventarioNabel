@@ -23,7 +23,7 @@ export function TablaMateriales({
   const [verArchivados, setVerArchivados] = useState(false);
 
   const ruta = clase === "tela" ? "/telas" : "/insumos";
-  const etiquetaTipo = clase === "tela" ? "Tipo de tela" : "Categoria";
+  const etiquetaTipo = clase === "tela" ? "Tipo de tela" : "Categoría";
 
   const tipos = useMemo(
     () => [...new Set(materiales.map((m) => m.tipo).filter(Boolean))].sort() as string[],
@@ -56,20 +56,20 @@ export function TablaMateriales({
 
   function exportar() {
     const columnas: Columna<Material>[] = [
-      { clave: "codigo", titulo: "Codigo", valor: (m) => m.codigo },
+      { clave: "codigo", titulo: "Código", valor: (m) => m.codigo },
       { clave: "nombre", titulo: "Nombre", valor: (m) => m.nombre },
       { clave: "tipo", titulo: etiquetaTipo, valor: (m) => m.tipo },
       ...(clase === "tela"
         ? ([
-            { clave: "composicion", titulo: "Composicion", valor: (m) => m.composicion },
+            { clave: "composicion", titulo: "Composición", valor: (m) => m.composicion },
             { clave: "color", titulo: "Color", valor: (m) => m.color },
             { clave: "ancho_cm", titulo: "Ancho (cm)", valor: (m) => m.ancho_cm },
           ] as Columna<Material>[])
         : []),
       { clave: "stock", titulo: "Existencias", valor: (m) => m.stock },
       { clave: "unidad", titulo: "Unidad", valor: (m) => m.unidad },
-      { clave: "punto_reposicion", titulo: "Punto de reposicion", valor: (m) => m.punto_reposicion },
-      { clave: "ubicacion", titulo: "Ubicacion", valor: (m) => m.ubicacion },
+      { clave: "punto_reposicion", titulo: "Punto de reposición", valor: (m) => m.punto_reposicion },
+      { clave: "ubicacion", titulo: "Ubicación", valor: (m) => m.ubicacion },
       { clave: "proveedor", titulo: "Proveedor", valor: (m) => m.proveedor_nombre },
       ...(esAdmin
         ? ([
@@ -78,7 +78,7 @@ export function TablaMateriales({
           ] as Columna<Material>[])
         : []),
       { clave: "notas", titulo: "Notas", valor: (m) => m.notas },
-      { clave: "activo", titulo: "Activo", valor: (m) => (m.activo ? "Si" : "No") },
+      { clave: "activo", titulo: "Activo", valor: (m) => (m.activo ? "Sí" : "No") },
     ];
     descargarCsv(clase === "tela" ? "telas" : "insumos", filtrados, columnas);
   }
@@ -86,11 +86,11 @@ export function TablaMateriales({
   if (materiales.length === 0) {
     return (
       <EstadoVacio
-        titulo={clase === "tela" ? "Aun no hay telas" : "Aun no hay insumos"}
+        titulo={clase === "tela" ? "Aún no hay telas" : "Aún no hay insumos"}
         descripcion={
           esAdmin
-            ? "Puedes crear la primera ficha a mano o traer todo de una vez desde tu hoja de calculo."
-            : "Cuando la administradora cargue el inventario, aparecera aqui."
+            ? "Puedes crear la primera ficha a mano o traer todo de una vez desde tu hoja de cálculo."
+            : "Cuando la administradora cargue el inventario, aparecerá aquí."
         }
         accion={
           esAdmin ? (
@@ -118,8 +118,8 @@ export function TablaMateriales({
             className="campo md:flex-1"
             placeholder={
               clase === "tela"
-                ? "Buscar por codigo, nombre, color, composicion…"
-                : "Buscar por codigo, nombre, categoria, ubicacion…"
+                ? "Buscar por código, nombre, color, composición…"
+                : "Buscar por código, nombre, categoría, ubicación…"
             }
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
@@ -163,7 +163,7 @@ export function TablaMateriales({
               checked={soloAlerta}
               onChange={(e) => setSoloAlerta(e.target.checked)}
             />
-            Solo bajo minimo
+            Solo bajo mínimo
           </label>
 
           <label className="flex min-h-12 cursor-pointer items-center gap-2 px-1 text-sm text-humo">
@@ -215,12 +215,12 @@ export function TablaMateriales({
             <table className="tabla">
               <thead>
                 <tr>
-                  <th>Codigo</th>
+                  <th>Código</th>
                   <th>Nombre</th>
                   <th>{etiquetaTipo}</th>
                   {clase === "tela" && <th>Color</th>}
                   <th className="numerico">Existencias</th>
-                  <th>Ubicacion</th>
+                  <th>Ubicación</th>
                   <th>Proveedor</th>
                   {esAdmin && <th className="numerico">Costo</th>}
                 </tr>

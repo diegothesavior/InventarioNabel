@@ -32,12 +32,12 @@ export async function guardarPrenda(
   const etapa = texto(datos, "etapa") as EtapaPrenda | null;
   const estado = texto(datos, "estado") as EstadoPrenda | null;
 
-  if (!codigo) return fallo("El codigo de la prenda es obligatorio.");
+  if (!codigo) return fallo("El código de la prenda es obligatorio.");
   if (!nombre) return fallo("El nombre de la prenda es obligatorio.");
   if (!clienta_id && !coleccion_id)
-    return fallo("Indica para quien es: una clienta, una coleccion o las dos.");
-  if (etapa && !ETAPAS.includes(etapa)) return fallo("Elige una etapa valida.");
-  if (estado && !ESTADOS.includes(estado)) return fallo("Elige un estado valido.");
+    return fallo("Indica para quién es: una clienta, una colección o las dos.");
+  if (etapa && !ETAPAS.includes(etapa)) return fallo("Elige una etapa válida.");
+  if (estado && !ESTADOS.includes(estado)) return fallo("Elige un estado válido.");
 
   const campos: Record<string, unknown> = {
     codigo,
@@ -81,7 +81,7 @@ export async function guardarPrenda(
 /** Avanzar o retroceder de etapa desde la ficha, sin abrir el formulario. */
 export async function cambiarEtapa(id: string, etapa: EtapaPrenda): Promise<ResultadoAccion> {
   await perfilActual();
-  if (!ETAPAS.includes(etapa)) return fallo("Etapa no valida.");
+  if (!ETAPAS.includes(etapa)) return fallo("Etapa no válida.");
 
   const supabase = await crearClienteServidor();
   const { error } = await supabase.from("prendas").update({ etapa }).eq("id", id);
@@ -93,7 +93,7 @@ export async function cambiarEtapa(id: string, etapa: EtapaPrenda): Promise<Resu
 
 export async function cambiarEstado(id: string, estado: EstadoPrenda): Promise<ResultadoAccion> {
   await perfilActual();
-  if (!ESTADOS.includes(estado)) return fallo("Estado no valido.");
+  if (!ESTADOS.includes(estado)) return fallo("Estado no válido.");
 
   const campos: Record<string, unknown> = { estado };
   // Al entregarla se guarda la fecha real si no estaba puesta.

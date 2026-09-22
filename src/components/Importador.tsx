@@ -16,25 +16,25 @@ type Campo = {
 };
 
 const COMUNES: Campo[] = [
-  { clave: "codigo", titulo: "Codigo", alias: ["referencia", "ref", "id", "codigo interno"], obligatorio: true },
+  { clave: "codigo", titulo: "Código", alias: ["referencia", "ref", "id", "código interno"], obligatorio: true },
   { clave: "nombre", titulo: "Nombre", alias: ["descripcion", "material", "articulo"], obligatorio: true },
   { clave: "unidad", titulo: "Unidad", alias: ["unidad de medida", "medida", "um"] },
   { clave: "stock_inicial", titulo: "Existencias", alias: ["cantidad", "stock", "metros", "metros disponibles", "disponible", "existencia"], numerico: true },
   { clave: "costo_unitario", titulo: "Costo unitario", alias: ["costo", "precio", "costo por metro", "precio unitario", "valor"], numerico: true },
-  { clave: "punto_reposicion", titulo: "Punto de reposicion", alias: ["minimo", "stock minimo", "reposicion", "alerta"], numerico: true },
-  { clave: "ubicacion", titulo: "Ubicacion", alias: ["lugar", "estante", "bodega", "ubicacion fisica"] },
+  { clave: "punto_reposicion", titulo: "Punto de reposición", alias: ["minimo", "stock mínimo", "reposicion", "alerta"], numerico: true },
+  { clave: "ubicacion", titulo: "Ubicación", alias: ["lugar", "estante", "bodega", "ubicación física"] },
   { clave: "proveedor", titulo: "Proveedor", alias: ["proveedora", "suministra"] },
   { clave: "notas", titulo: "Notas", alias: ["observaciones", "comentarios"] },
 ];
 
 const DE_TELA: Campo[] = [
   { clave: "tipo", titulo: "Tipo de tela", alias: ["tipo", "familia", "clase"] },
-  { clave: "composicion", titulo: "Composicion", alias: ["material", "fibra"] },
+  { clave: "composicion", titulo: "Composición", alias: ["material", "fibra"] },
   { clave: "color", titulo: "Color", alias: ["tono"] },
   { clave: "ancho_cm", titulo: "Ancho (cm)", alias: ["ancho"], numerico: true },
 ];
 
-const DE_INSUMO: Campo[] = [{ clave: "tipo", titulo: "Categoria", alias: ["tipo", "familia", "grupo"] }];
+const DE_INSUMO: Campo[] = [{ clave: "tipo", titulo: "Categoría", alias: ["tipo", "familia", "grupo"] }];
 
 function BotonImportar({ cantidad }: { cantidad: number }) {
   const { pending } = useFormStatus();
@@ -63,7 +63,7 @@ export function Importador({ clase }: { clase: ClaseMaterial }) {
     const { cabeceras: cab, filas } = leerCsv(texto);
 
     if (cab.length === 0 || filas.length === 0) {
-      setErrorLectura("El archivo parece vacio. Revisa que tenga una fila de titulos y al menos un dato.");
+      setErrorLectura("El archivo parece vacío. Revisa que tenga una fila de títulos y al menos un dato.");
       setCabeceras([]);
       setFilasCrudas([]);
       return;
@@ -118,7 +118,7 @@ export function Importador({ clase }: { clase: ClaseMaterial }) {
     return (
       <div className="max-w-2xl space-y-6">
         <div className="aviso aviso-exito">
-          Importacion terminada: <b>{estado.creados}</b> fichas creadas,{" "}
+          Importación terminada: <b>{estado.creados}</b> fichas creadas,{" "}
           <b>{estado.actualizados}</b> actualizadas
           {estado.proveedoresCreados > 0 && <> y {estado.proveedoresCreados} proveedores nuevos</>}.
         </div>
@@ -157,8 +157,8 @@ export function Importador({ clase }: { clase: ClaseMaterial }) {
 
         <div className="tarjeta px-6 py-7">
           <p className="text-grafito">
-            Desde Excel o Google Sheets: <b>Archivo → Descargar → CSV</b>. Despues sube ese
-            archivo aqui. La primera fila debe tener los titulos de las columnas.
+            Desde Excel o Google Sheets: <b>Archivo → Descargar → CSV</b>. Después sube ese
+            archivo aquí. La primera fila debe tener los títulos de las columnas.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">
@@ -187,7 +187,7 @@ export function Importador({ clase }: { clase: ClaseMaterial }) {
             </summary>
             <textarea
               className="campo mt-3 min-h-40 font-mono text-sm"
-              placeholder="Pega aqui las celdas copiadas, con la fila de titulos incluida"
+              placeholder="Pega aquí las celdas copiadas, con la fila de títulos incluida"
               onChange={(e) => e.target.value.trim() && procesar(e.target.value)}
             />
           </details>
@@ -202,7 +202,7 @@ export function Importador({ clase }: { clase: ClaseMaterial }) {
           <h2 className="antetitulo mb-4">2 · Revisa las columnas</h2>
           <p className="mb-5 text-grafito">
             Esto es lo que entendimos de tu archivo. Corrige lo que no cuadre; lo que no
-            necesites, dejalo en «No importar».
+            necesites, déjalo en «No importar».
           </p>
 
           <div className="tarjeta divide-y divide-lino">
@@ -243,11 +243,11 @@ export function Importador({ clase }: { clase: ClaseMaterial }) {
           <h2 className="antetitulo mb-4">3 · Comprueba y confirma</h2>
 
           <p className="mb-4 text-grafito">
-            Se importaran <b>{filasListas.length}</b> fichas.
+            Se importarán <b>{filasListas.length}</b> fichas.
             {sinCodigoONombre > 0 && (
               <span className="text-alerta">
                 {" "}
-                {sinCodigoONombre} {sinCodigoONombre === 1 ? "fila quedara fuera" : "filas quedaran fuera"} por
+                {sinCodigoONombre} {sinCodigoONombre === 1 ? "fila quedará fuera" : "filas quedarán fuera"} por
                 no tener codigo o nombre.
               </span>
             )}{" "}

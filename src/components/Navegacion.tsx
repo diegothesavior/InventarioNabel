@@ -71,7 +71,7 @@ export function Navegacion({ perfil }: { perfil: Perfil }) {
           type="button"
           onClick={() => setAbierto((v) => !v)}
           aria-expanded={abierto}
-          aria-label="Menu"
+          aria-label="Menú"
           className="flex h-12 w-12 items-center justify-center border border-arena lg:hidden"
         >
           <span className="relative block h-3 w-5">

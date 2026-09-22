@@ -35,7 +35,7 @@ export function SubirFoto({
       return;
     }
     if (archivo.size > 8 * 1024 * 1024) {
-      setError("La foto pesa demasiado. El limite son 8 MB.");
+      setError("La foto pesa demasiado. El límite son 8 MB.");
       return;
     }
 
@@ -51,7 +51,7 @@ export function SubirFoto({
     setSubiendo(false);
 
     if (fallo) {
-      setError("No se pudo subir la foto. Revisa tu conexion e intentalo otra vez.");
+      setError("No se pudo subir la foto. Revisa tu conexión e inténtalo otra vez.");
       return;
     }
 
@@ -97,7 +97,7 @@ export function SubirFoto({
               Quitar foto
             </button>
           )}
-          <p className="ayuda">Desde el telefono puedes tomarla en el momento.</p>
+          <p className="ayuda">Desde el teléfono puedes tomarla en el momento.</p>
         </div>
       </div>
 

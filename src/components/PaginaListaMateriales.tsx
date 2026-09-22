@@ -17,8 +17,8 @@ export async function PaginaListaMateriales({ clase }: { clase: ClaseMaterial })
         titulo={esTela ? "Telas" : "Insumos"}
         descripcion={
           esTela
-            ? "Cada tela con sus metros disponibles, su ubicacion y su punto de reposicion."
-            : "Botones, cierres, hilos, entretelas, pedreria y todo lo demas."
+            ? "Cada tela con sus metros disponibles, su ubicación y su punto de reposición."
+            : "Botones, cierres, hilos, entretelas, pedrería y todo lo demás."
         }
         acciones={
           esAdmin ? (

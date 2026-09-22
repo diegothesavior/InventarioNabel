@@ -13,7 +13,7 @@ export const metadata = { title: "Inicio" };
 
 function saludo() {
   const hora = new Date().getHours();
-  if (hora < 12) return "Buenos dias";
+  if (hora < 12) return "Buenos días";
   if (hora < 20) return "Buenas tardes";
   return "Buenas noches";
 }
@@ -48,7 +48,7 @@ export default async function PaginaInicio() {
       <EncabezadoPagina
         antetitulo={saludo()}
         titulo={perfil.nombre || "Atelier"}
-        descripcion="Asi esta el taller hoy."
+        descripcion="Así está el taller hoy."
         acciones={
           <Link href="/movimientos/nuevo" className="boton boton-principal">
             Registrar movimiento
@@ -68,7 +68,7 @@ export default async function PaginaInicio() {
         <Indicador
           etiqueta="Por reponer"
           valor={String(alertas.length)}
-          detalle={alertas.length === 1 ? "material bajo minimo" : "materiales bajo minimo"}
+          detalle={alertas.length === 1 ? "material bajo mínimo" : "materiales bajo mínimo"}
           tono={alertas.length > 0 ? "alerta" : "neutro"}
           href="/telas"
         />
@@ -101,7 +101,7 @@ export default async function PaginaInicio() {
 
         {alertas.length === 0 ? (
           <div className="tarjeta px-6 py-10 text-center text-grafito">
-            Todo por encima de su punto de reposicion. Nada urgente por comprar.
+            Todo por encima de su punto de reposición. Nada urgente por comprar.
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -134,7 +134,7 @@ export default async function PaginaInicio() {
         {/* Ultimos movimientos */}
         <section>
           <div className="mb-5 flex items-end justify-between gap-4 border-b border-arena pb-3">
-            <h2 className="font-display text-2xl">Ultimos movimientos</h2>
+            <h2 className="font-display text-2xl">Últimos movimientos</h2>
             <Link href="/movimientos" className="boton-texto">
               Ver todos
             </Link>
@@ -142,7 +142,7 @@ export default async function PaginaInicio() {
 
           {movimientos.length === 0 ? (
             <div className="tarjeta px-6 py-10 text-center text-grafito">
-              Todavia no se ha registrado ningun movimiento.
+              Todavía no se ha registrado ningún movimiento.
             </div>
           ) : (
             <ul className="divide-y divide-lino">
@@ -177,7 +177,7 @@ export default async function PaginaInicio() {
         {/* Proximas entregas */}
         <section>
           <div className="mb-5 flex items-end justify-between gap-4 border-b border-arena pb-3">
-            <h2 className="font-display text-2xl">Proximas entregas</h2>
+            <h2 className="font-display text-2xl">Próximas entregas</h2>
             <Link href="/prendas" className="boton-texto">
               Ver prendas
             </Link>

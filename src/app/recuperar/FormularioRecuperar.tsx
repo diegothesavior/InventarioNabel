@@ -21,7 +21,7 @@ export function FormularioRecuperar() {
 
     setCargando(false);
     if (fallo) {
-      setError("No se pudo enviar el correo. Revisa la direccion e intenta de nuevo.");
+      setError("No se pudo enviar el correo. Revisa la dirección e intenta de nuevo.");
       return;
     }
     setEnviado(true);

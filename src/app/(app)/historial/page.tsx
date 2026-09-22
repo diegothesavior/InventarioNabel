@@ -14,13 +14,13 @@ export default async function PaginaHistorial() {
       <EncabezadoPagina
         antetitulo="Taller"
         titulo="Historial"
-        descripcion="Quien cambio que y cuando. Lo registra la base de datos automaticamente."
+        descripcion="Quién cambió qué y cuándo. Lo registra la base de datos automáticamente."
       />
 
       {entradas.length === 0 ? (
         <EstadoVacio
-          titulo="Todavia no hay cambios registrados"
-          descripcion="En cuanto el equipo empiece a trabajar, aqui quedara constancia de todo."
+          titulo="Todavía no hay cambios registrados"
+          descripcion="En cuanto el equipo empiece a trabajar, aquí quedará constancia de todo."
         />
       ) : (
         <TablaHistorial entradas={entradas} />

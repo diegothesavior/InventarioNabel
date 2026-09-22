@@ -5,9 +5,9 @@ import { FormularioEntrar } from "./FormularioEntrar";
 export const metadata = { title: "Entrar" };
 
 const MENSAJES: Record<string, string> = {
-  "sin-perfil": "Tu cuenta existe pero aun no tiene perfil en el taller. Avisa a la administradora.",
-  inactivo: "Tu acceso esta desactivado. Habla con la administradora del taller.",
-  salida: "Has cerrado la sesion.",
+  "sin-perfil": "Tu cuenta existe pero aún no tiene perfil en el taller. Avisa a la administradora.",
+  inactivo: "Tu acceso está desactivado. Habla con la administradora del taller.",
+  salida: "Has cerrado la sesión.",
 };
 
 export default async function PaginaEntrar({

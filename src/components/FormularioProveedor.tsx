@@ -47,7 +47,7 @@ export function FormularioProveedor({
         </div>
         <div>
           <label className="etiqueta" htmlFor="telefono">
-            Telefono
+            Teléfono
           </label>
           <input
             id="telefono"
@@ -71,7 +71,7 @@ export function FormularioProveedor({
         </div>
         <div>
           <label className="etiqueta" htmlFor="dias_entrega">
-            Tiempo de entrega (dias)
+            Tiempo de entrega (días)
           </label>
           <input
             id="dias_entrega"
@@ -86,7 +86,7 @@ export function FormularioProveedor({
 
       <div>
         <label className="etiqueta" htmlFor="suministra">
-          Que suministra
+          Qué suministra
         </label>
         <input
           id="suministra"

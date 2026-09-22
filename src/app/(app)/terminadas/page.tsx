@@ -15,7 +15,7 @@ export default async function PaginaTerminadas() {
       <EncabezadoPagina
         antetitulo="Taller"
         titulo="Prendas terminadas"
-        descripcion="El archivo del atelier: que hay disponible, que esta reservado y que se entrego."
+        descripcion="El archivo del atelier: qué hay disponible, qué está reservado y qué se entregó."
         acciones={
           <Link href="/prendas" className="boton boton-secundario">
             Ver prendas en proceso
@@ -25,8 +25,8 @@ export default async function PaginaTerminadas() {
 
       {terminadas.length === 0 ? (
         <EstadoVacio
-          titulo="Aun no hay prendas terminadas"
-          descripcion="Cuando una prenda en proceso cambie a «Terminada», aparecera aqui con su foto y su precio."
+          titulo="Aún no hay prendas terminadas"
+          descripcion="Cuando una prenda en proceso cambie a «Terminada», aparecerá aquí con su foto y su precio."
           accion={
             <Link href="/prendas" className="boton boton-principal">
               Ver prendas en proceso

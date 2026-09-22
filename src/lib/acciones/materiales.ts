@@ -31,11 +31,11 @@ function leerCampos(datos: FormData, clase: ClaseMaterial) {
 }
 
 function validar(campos: ReturnType<typeof leerCampos>): string | null {
-  if (!campos.codigo) return "El codigo es obligatorio.";
+  if (!campos.codigo) return "El código es obligatorio.";
   if (!campos.nombre) return "El nombre es obligatorio.";
   if (campos.costo_unitario !== null && campos.costo_unitario < 0)
     return "El costo no puede ser negativo.";
-  if (campos.punto_reposicion < 0) return "El punto de reposicion no puede ser negativo.";
+  if (campos.punto_reposicion < 0) return "El punto de reposición no puede ser negativo.";
   return null;
 }
 

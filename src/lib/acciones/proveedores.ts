@@ -27,7 +27,7 @@ export async function guardarProveedor(
 
   if (!campos.nombre) return fallo("El nombre del proveedor es obligatorio.");
   if (campos.dias_entrega !== null && campos.dias_entrega < 0)
-    return fallo("Los dias de entrega no pueden ser negativos.");
+    return fallo("Los días de entrega no pueden ser negativos.");
 
   const supabase = await crearClienteServidor();
 

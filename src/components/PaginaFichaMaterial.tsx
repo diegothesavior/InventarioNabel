@@ -61,7 +61,7 @@ export async function PaginaFichaMaterial({
       {!material.activo && (
         <div className="mb-8">
           <Aviso tono="info">
-            Esta ficha esta archivada: no aparece en los listados salvo que se pidan los
+            Esta ficha está archivada: no aparece en los listados salvo que se pidan los
             archivados.
           </Aviso>
         </div>
@@ -118,8 +118,8 @@ export async function PaginaFichaMaterial({
           <section>
             <h2 className="antetitulo mb-4">Ficha</h2>
             <dl className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <Dato etiqueta={esTela ? "Tipo de tela" : "Categoria"}>{material.tipo ?? "—"}</Dato>
-              {esTela && <Dato etiqueta="Composicion">{material.composicion ?? "—"}</Dato>}
+              <Dato etiqueta={esTela ? "Tipo de tela" : "Categoría"}>{material.tipo ?? "—"}</Dato>
+              {esTela && <Dato etiqueta="Composición">{material.composicion ?? "—"}</Dato>}
               {esTela && <Dato etiqueta="Color">{material.color ?? "—"}</Dato>}
               {esTela && (
                 <Dato etiqueta="Ancho">
@@ -127,7 +127,7 @@ export async function PaginaFichaMaterial({
                 </Dato>
               )}
               <Dato etiqueta="Unidad">{etiquetaUnidad(material.unidad)}</Dato>
-              <Dato etiqueta="Ubicacion">{material.ubicacion ?? "—"}</Dato>
+              <Dato etiqueta="Ubicación">{material.ubicacion ?? "—"}</Dato>
               <Dato etiqueta="Proveedor">
                 {material.proveedor_nombre ? (
                   <Link href="/proveedores" className="underline underline-offset-4">
@@ -137,7 +137,7 @@ export async function PaginaFichaMaterial({
                   "—"
                 )}
               </Dato>
-              <Dato etiqueta="Punto de reposicion">{numero(material.punto_reposicion)}</Dato>
+              <Dato etiqueta="Punto de reposición">{numero(material.punto_reposicion)}</Dato>
               {esAdmin && (
                 <Dato etiqueta={`Costo por ${esTela ? "metro" : "unidad"}`}>
                   {dinero(material.costo_unitario)}
@@ -160,7 +160,7 @@ export async function PaginaFichaMaterial({
 
             {movimientos.length === 0 ? (
               <div className="tarjeta px-6 py-10 text-center text-grafito">
-                Todavia no hay movimientos de este material.
+                Todavía no hay movimientos de este material.
               </div>
             ) : (
               <div className="tarjeta overflow-x-auto">

@@ -55,9 +55,9 @@ export async function guardarColeccion(
     anio: numero(datos, "anio"),
     notas: texto(datos, "notas"),
   };
-  if (!campos.nombre) return fallo("El nombre de la coleccion es obligatorio.");
+  if (!campos.nombre) return fallo("El nombre de la colección es obligatorio.");
   if (campos.anio !== null && (campos.anio < 1900 || campos.anio > 2200))
-    return fallo("Revisa el ano de la coleccion.");
+    return fallo("Revisa el ano de la colección.");
 
   const supabase = await crearClienteServidor();
   const { error } = id
@@ -71,5 +71,5 @@ export async function guardarColeccion(
 
   revalidatePath("/colecciones");
   revalidatePath("/prendas");
-  return exito(id ? "Coleccion actualizada." : "Coleccion creada.");
+  return exito(id ? "Colección actualizada." : "Colección creada.");
 }

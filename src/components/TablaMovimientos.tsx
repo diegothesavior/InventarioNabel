@@ -43,7 +43,7 @@ export function TablaMovimientos({
     const columnas: Columna<Movimiento>[] = [
       { clave: "fecha", titulo: "Fecha", valor: (m) => fechaHora(m.fecha) },
       { clave: "tipo", titulo: "Tipo", valor: (m) => m.tipo },
-      { clave: "material_codigo", titulo: "Codigo material", valor: (m) => m.material_codigo },
+      { clave: "material_codigo", titulo: "Código material", valor: (m) => m.material_codigo },
       { clave: "material_nombre", titulo: "Material", valor: (m) => m.material_nombre },
       { clave: "cantidad", titulo: "Cantidad", valor: (m) => m.cantidad_efectiva },
       { clave: "unidad", titulo: "Unidad", valor: (m) => m.material_unidad },
@@ -56,7 +56,7 @@ export function TablaMovimientos({
             { clave: "costo_total", titulo: "Costo total", valor: (m) => m.costo_total },
           ] as Columna<Movimiento>[])
         : []),
-      { clave: "anulado", titulo: "Anulado", valor: (m) => (m.anulado ? "Si" : "No") },
+      { clave: "anulado", titulo: "Anulado", valor: (m) => (m.anulado ? "Sí" : "No") },
     ];
     descargarCsv("movimientos", filtrados, columnas);
   }
@@ -126,7 +126,7 @@ export function TablaMovimientos({
                 <th>Material</th>
                 <th className="numerico">Cantidad</th>
                 <th>Destino / nota</th>
-                <th>Quien</th>
+                <th>Quién</th>
                 {esAdmin && <th className="numerico">Costo</th>}
                 {esAdmin && <th className="sin-imprimir" />}
               </tr>
@@ -228,13 +228,13 @@ function DialogoAnular({
 
           <div>
             <label className="etiqueta" htmlFor="motivo_anulacion">
-              ¿Por que se anula? *
+              ¿Por qué se anula? *
             </label>
             <input
               id="motivo_anulacion"
               name="motivo_anulacion"
               className="campo"
-              placeholder="Se registro por error"
+              placeholder="Se registró por error"
               required
               autoFocus
             />
